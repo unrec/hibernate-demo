@@ -1,4 +1,4 @@
-package com.unrec.hibernatedemo.repository;
+package com.unrec.hibernatedemo.repository.order;
 
 import static com.unrec.hibernatedemo.utils.TestObjects.getTestOrder;
 import static com.unrec.hibernatedemo.utils.TestObjects.getTestPositions;

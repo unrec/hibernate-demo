@@ -2,11 +2,11 @@ package com.unrec.hibernatedemo;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.unrec.hibernatedemo.repository.AlbumRepository;
-import com.unrec.hibernatedemo.repository.ArtistRepository;
-import com.unrec.hibernatedemo.repository.OrderRepository;
-import com.unrec.hibernatedemo.repository.PositionRepository;
-import com.unrec.hibernatedemo.repository.TrackRepository;
+import com.unrec.hibernatedemo.repository.library.AlbumRepository;
+import com.unrec.hibernatedemo.repository.library.ArtistRepository;
+import com.unrec.hibernatedemo.repository.library.TrackRepository;
+import com.unrec.hibernatedemo.repository.shop.OrderRepository;
+import com.unrec.hibernatedemo.repository.shop.PositionRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

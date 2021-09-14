@@ -1,4 +1,4 @@
-package com.unrec.hibernatedemo.repository;
+package com.unrec.hibernatedemo.repository.library;
 
 import com.unrec.hibernatedemo.model.library.Album;
 import org.springframework.data.jpa.repository.JpaRepository;

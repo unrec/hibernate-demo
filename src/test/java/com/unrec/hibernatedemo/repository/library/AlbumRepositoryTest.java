@@ -1,4 +1,4 @@
-package com.unrec.hibernatedemo.repository;
+package com.unrec.hibernatedemo.repository.library;
 
 import static com.unrec.hibernatedemo.utils.TestObjects.getTestAlbum;
 import static com.unrec.hibernatedemo.utils.TestObjects.getTestTracks;
