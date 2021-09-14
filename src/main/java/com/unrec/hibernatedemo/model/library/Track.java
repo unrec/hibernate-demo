@@ -3,6 +3,7 @@ package com.unrec.hibernatedemo.model.library;
 import java.io.Serializable;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,17 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "TRACKS")
 public class Track implements Serializable {
 
   @Id
   private String id;
+
   @ManyToOne
   @JoinColumn(name = "album_id")
   private Album album;
@@ -38,6 +41,7 @@ public class Track implements Serializable {
   private Boolean explicit;
   @Column
   private LocalDateTime releaseDate;
+
   /* File properties */
   @Column
   private URL location;
@@ -53,6 +57,7 @@ public class Track implements Serializable {
   private Integer bpm;
   @Column
   private String comments;
+
   /* Library-related properties */
   @Column
   private Integer trackId;
@@ -75,12 +80,9 @@ public class Track implements Serializable {
   @Column
   private String trackType;
 
-  public Track() {
-  }
-
   @Override
   public int hashCode() {
-    return 42;
+    return Objects.hashCode(id);
   }
 
   @Override
@@ -88,17 +90,10 @@ public class Track implements Serializable {
     if (this == obj) {
       return true;
     }
-    if (obj == null) {
-      return false;
-    }
-    if (getClass() != obj.getClass()) {
+    if (!(obj instanceof Track)) {
       return false;
     }
     Track other = (Track) obj;
-    if (id == null) {
-      return false;
-    } else {
-      return id.equals(other.getId());
-    }
+    return id != null && id.equals(other.getId());
   }
 }

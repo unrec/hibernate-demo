@@ -16,12 +16,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "ALBUMS")
 public class Album implements Serializable {
@@ -29,12 +31,15 @@ public class Album implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
+
   @ManyToOne
   @JoinColumn(name = "artist_id")
   private Artist artist;
+
   @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @Fetch(FetchMode.JOIN)
   private List<Track> tracks;
+
   @Column
   private String name;
   @Column
@@ -43,17 +48,15 @@ public class Album implements Serializable {
   private String albumArtist;
   @Column
   private Boolean compilation;
+
   @Column
   @ElementCollection
   @Fetch(FetchMode.JOIN)
   private Map<Integer, Integer> trackDiscInfo;
 
-  public Album() {
-  }
-
   @Override
   public int hashCode() {
-    return 42;
+    return getClass().hashCode();
   }
 
   @Override
@@ -61,17 +64,10 @@ public class Album implements Serializable {
     if (this == obj) {
       return true;
     }
-    if (obj == null) {
+    if (!(obj instanceof Album)) {
       return false;
     }
-    if (getClass() != obj.getClass()) {
-      return false;
-    }
-    Album other = (Album) obj;
-    if (id == null) {
-      return false;
-    } else {
-      return id.equals(other.getId());
-    }
+    var other = (Album) obj;
+    return id != null && id.equals(other.getId());
   }
 }
