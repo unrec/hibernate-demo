@@ -1,12 +1,14 @@
 package com.unrec.hibernatedemo.repository;
 
+import static com.unrec.hibernatedemo.utils.TestObjects.getTestPosition;
+import static com.unrec.hibernatedemo.utils.TestObjects.getTestPositions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.unrec.hibernatedemo.IntegrationTest;
 import com.unrec.hibernatedemo.model.shop.Position;
-import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.List;
-import static com.unrec.hibernatedemo.utils.TestObjects.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 class PositionRepositoryTest extends IntegrationTest {
 

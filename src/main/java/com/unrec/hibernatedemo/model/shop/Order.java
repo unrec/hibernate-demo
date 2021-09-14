@@ -1,5 +1,7 @@
 package com.unrec.hibernatedemo.model.shop;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "ORDERS")
@@ -64,16 +64,21 @@ public class Order {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Order other = (Order) obj;
         if (id == null) {
             return false;
-        } else return id.equals(other.id);
+        } else {
+            return id.equals(other.id);
+        }
     }
 
     @Override

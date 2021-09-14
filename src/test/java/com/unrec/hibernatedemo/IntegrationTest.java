@@ -1,5 +1,7 @@
 package com.unrec.hibernatedemo;
 
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+
 import com.unrec.hibernatedemo.repository.AlbumRepository;
 import com.unrec.hibernatedemo.repository.ArtistRepository;
 import com.unrec.hibernatedemo.repository.OrderRepository;
@@ -11,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)

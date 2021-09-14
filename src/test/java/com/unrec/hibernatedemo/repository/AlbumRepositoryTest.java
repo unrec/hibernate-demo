@@ -1,9 +1,11 @@
 package com.unrec.hibernatedemo.repository;
 
+import static com.unrec.hibernatedemo.utils.TestObjects.getTestAlbum;
+import static com.unrec.hibernatedemo.utils.TestObjects.getTestTracks;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.unrec.hibernatedemo.IntegrationTest;
 import org.junit.jupiter.api.Test;
-import static com.unrec.hibernatedemo.utils.TestObjects.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AlbumRepositoryTest extends IntegrationTest {
 
