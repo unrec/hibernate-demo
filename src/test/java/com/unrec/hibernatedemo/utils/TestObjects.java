@@ -47,11 +47,11 @@ public class TestObjects {
 
   /* iTunes objects */
 
-  public static Artist getTestArtist() {
+  public static Artist testArtist() {
     return new Artist().setName("Metallica");
   }
 
-  public static Album getTestAlbum() {
+  public static Album testAlbum() {
     return new Album()
         .setName("Reload")
         .setYear(1997)
@@ -60,11 +60,19 @@ public class TestObjects {
         .setTrackDiscInfo(Map.of(1, 13));
   }
 
-  public static Album getTestAlbum(List<Track> tracks) {
-    return getTestAlbum().setTracks(tracks);
+  public static Album testAlbum(List<Track> tracks) {
+    return testAlbum().setTracks(tracks);
   }
 
-  public static Track getTestTrack() {
+  public static Album testAlbumWithTracks() {
+    var album = testAlbum();
+    var tracks = testTracks();
+    tracks.forEach(track -> track.setAlbum(album));
+    album.setTracks(tracks);
+    return album;
+  }
+
+  public static Track testTrack() {
     return new Track()
         .setId("CB226CC410A85072")
         .setName("The Memory Remains")
@@ -76,7 +84,7 @@ public class TestObjects {
         .setReleaseDate(LocalDateTime.of(1997, 11, 7, 12, 0));
   }
 
-  public static List<Track> getTestTracks() {
+  public static List<Track> testTracks() {
     return Stream.of(
         List.of("Fuel", 1, 1, "3105EFEA81D2FA2C"),
         List.of("The Memory Remains", 2, 1, "CB226CC410A85072"),
@@ -99,8 +107,8 @@ public class TestObjects {
         .collect(Collectors.toList());
   }
 
-  public static List<Track> getTestTracks(Album album) {
-    List<Track> tracks = getTestTracks();
+  public static List<Track> testTracks(Album album) {
+    var tracks = testTracks();
     tracks.forEach(track -> track.setAlbum(album));
     return tracks;
   }
